@@ -1,0 +1,58 @@
+﻿{
+  "Routes": [
+    {
+      "SwaggerKey": "Basket",
+      "UpstreamPathTemplate": "/api/v1/basket",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.basket.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/basket"
+    },
+    {
+      "SwaggerKey": "Basket",
+      "UpstreamPathTemplate": "/api/v1/basket/items",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.basket.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/basket/items"
+    },
+    {
+      "SwaggerKey": "Basket",
+      "UpstreamPathTemplate": "/api/v1/basket/items/{id}",
+      "UpstreamHttpMethod": [ "PUT", "DELETE" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.basket.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/basket/items/{id}"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "Basket",
+      "Config": [
+        {
+          "Name": "Smakownia.Basket.Api",
+          "Version": "v1",
+          "Url": "http://smakownia.basket.api:80/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:8000"
+  }
+}

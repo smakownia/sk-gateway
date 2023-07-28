@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  smakownia.gateway.api:
+    image: ${DOCKER_REGISTRY-}smakowniagatewayapi
+    build:
+      context: .
+      dockerfile: src/Smakownia.Gateway.Api/Dockerfile
+    ports:
+      - 8000:80
+    networks:
+      - smakownia
+
+networks:
+  smakownia:
+    name: smakownia
