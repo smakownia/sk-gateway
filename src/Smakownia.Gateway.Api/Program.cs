@@ -1,7 +1,7 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
-var uiOrigin = "_uiOrigin";
+var AllowSpecificOrigins = "_allowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,9 +11,13 @@ builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(uiOrigin, b => b.WithOrigins(builder.Configuration.GetValue<string>("UI_ORIGIN"))
-                                      .AllowAnyMethod()
-                                      .AllowAnyHeader());
+    options.AddPolicy(AllowSpecificOrigins, policy =>
+    {
+        policy.WithOrigins(builder.Configuration.GetValue<string>("UiOrigin"))
+              .AllowCredentials()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
 });
 
 builder.Services.AddOcelot(builder.Configuration);
@@ -25,17 +29,18 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
 }
 
-app.UseCors(uiOrigin);
-
 app.UseSwaggerForOcelotUI(opt =>
 {
     opt.PathToSwaggerGenerator = "/swagger/docs";
 });
+
+app.UseCors(AllowSpecificOrigins);
 
 await app.UseOcelot();
 
