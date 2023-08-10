@@ -1,3 +1,4 @@
+using Microsoft.Extensions.FileProviders;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -29,6 +30,13 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+           Path.Combine(builder.Environment.ContentRootPath, "upload")),
+    RequestPath = "/upload",
+    ServeUnknownFileTypes = true
+});
 
 if (app.Environment.IsDevelopment())
 {
