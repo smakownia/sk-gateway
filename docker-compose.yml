@@ -11,8 +11,14 @@ services:
       - ASPNETCORE_URLS=http://+:80
     ports:
       - 8000:80
+    volumes:
+      - smakownia-upload:/app/upload
     networks:
       - smakownia
+
+volumes:
+  smakownia-upload:
+    name: smakownia-upload
 
 networks:
   smakownia:
