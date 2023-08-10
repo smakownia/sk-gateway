@@ -4,7 +4,7 @@ Online pizzeria application, based on a simplified microservices architecture an
 
 ## Getting Started
 
-> Make sure you have installed and configured docker in your environment. 
+> Make sure you have installed and configured docker in your environment.
 
 Clone all repositories:
 
