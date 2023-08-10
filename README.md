@@ -2,6 +2,8 @@
 
 Online pizzeria application, based on a simplified microservices architecture and Docker containers.
 
+![preview](github/img/preview.png)
+
 ## Getting Started
 
 > Make sure you have installed and configured docker in your environment.
@@ -35,18 +37,12 @@ docker-compose build
 docker-compose up -d
 ```
 
-## Architecture overview
-
-This reference application is cross-platform at the server and client-side, thanks to .NET 6 services capable of running on Linux or Windows containers depending on your Docker host. The architecture proposes a microservice oriented architecture implementation with multiple autonomous microservices (each one owning its own database/cache) and implementing different approaches within each microservice (simple CRUD or DDD/CQRS patterns) using HTTP as the communication protocol between the client apps and the microservices.
-
-![diagram](img/diagram.png)
-
 ## Technologies
 
 ### Gateway service
 
 - ASP .NET core
-- Ocelot Gateway
+- Ocelot
 - Swagger
 
 ### Products service
@@ -74,3 +70,9 @@ This reference application is cross-platform at the server and client-side, than
 - Tailwind CSS
 - React Query
 - React Hook Form
+
+## Architecture overview
+
+This reference application is cross-platform at the server and client-side, thanks to .NET 6 services capable of running on Linux or Windows containers depending on your Docker host. The architecture proposes a microservice oriented architecture implementation with multiple autonomous microservices (each one owning its own database/cache) and implementing different approaches within each microservice (simple CRUD or DDD/CQRS patterns) using HTTP as the communication protocol between the client apps and the microservices.
+
+![diagram](github/img/diagram.png)
