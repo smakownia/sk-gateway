@@ -41,12 +41,11 @@ app.UseStaticFiles(new StaticFileOptions
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
+    app.UseSwaggerForOcelotUI(opt =>
+    {
+        opt.PathToSwaggerGenerator = "/swagger/docs";
+    });
 }
-
-app.UseSwaggerForOcelotUI(opt =>
-{
-    opt.PathToSwaggerGenerator = "/swagger/docs";
-});
 
 app.UseCors(AllowSpecificOrigins);
 
