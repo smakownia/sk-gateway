@@ -22,15 +22,15 @@ Build and run each of them:
 ```bash
 cd sk-gateway
 docker-compose build 
-docker-compose up -d
+docker-compose -f docker-compose.yml up -d
 
 cd ../sk-products
 docker-compose build
-docker-compose up -d
+docker-compose -f docker-compose.yml up -d
 
 cd ../sk-basket
 docker-compose build
-docker-compose up -d
+docker-compose -f docker-compose.yml up -d
 
 cd ../sk-frontend
 docker-compose build
