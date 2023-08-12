@@ -15,19 +15,6 @@
     },
     {
       "SwaggerKey": "Basket",
-      "UpstreamPathTemplate": "/api/v1/basket/items",
-      "UpstreamHttpMethod": [ "POST" ],
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "smakownia.basket.api",
-          "Port": 80
-        }
-      ],
-      "DownstreamPathTemplate": "/api/v1/basket/items"
-    },
-    {
-      "SwaggerKey": "Basket",
       "UpstreamPathTemplate": "/api/v1/basket/items/{id}",
       "UpstreamHttpMethod": [ "PUT", "DELETE" ],
       "DownstreamScheme": "http",
