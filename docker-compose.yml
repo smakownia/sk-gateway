@@ -15,8 +15,20 @@ services:
       - smakownia-upload:/app/upload
     networks:
       - smakownia
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    volumes:
+      - rabbitmq-log:/var/log/rabbitmq
+      - rabbitmq-lib:/var/lib/rabbitmq
+    networks:
+      - smakownia
 
 volumes:
+  rabbitmq-log:
+  rabbitmq-lib:
   smakownia-upload:
     name: smakownia-upload
 
