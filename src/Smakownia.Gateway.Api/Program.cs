@@ -1,10 +1,18 @@
 using Microsoft.Extensions.FileProviders;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Smakownia.Gateway.Api.Clients;
+using Smakownia.Gateway.Api.Middlewares;
+using Smakownia.Gateway.Api.Services;
 
 var AllowSpecificOrigins = "_allowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddTransient<IProductsClient, ProductsClient>();
+builder.Services.AddTransient<IBasketClient, BasketClient>();
+builder.Services.AddTransient<IProductsService, ProductsService>();
+builder.Services.AddTransient<IBasketService, BasketService>();
 
 builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)
                      .AddJsonFile("ocelot.json", optional: false)
@@ -22,8 +30,12 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddOcelot(builder.Configuration);
-builder.Services.AddSwaggerForOcelot(builder.Configuration);
+builder.Services.AddSwaggerForOcelot(builder.Configuration, opt =>
+{
+    opt.GenerateDocsForGatewayItSelf = true;
+});
 
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -49,8 +61,15 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors(AllowSpecificOrigins);
 
-await app.UseOcelot();
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
-app.MapControllers();
+app.UseRouting();
+
+app.UseEndpoints(e =>
+{
+    e.MapControllers();
+});
+
+app.UseOcelot().Wait();
 
 app.Run();
