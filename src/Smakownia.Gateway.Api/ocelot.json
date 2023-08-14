@@ -1,6 +1,32 @@
 ﻿{
   "Routes": [
     {
+      "SwaggerKey": "Identity",
+      "UpstreamPathTemplate": "/api/v1/identities/login",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.identity.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/identities/login"
+    },
+    {
+      "SwaggerKey": "Identity",
+      "UpstreamPathTemplate": "/api/v1/identities/register",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.identity.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/identities/register"
+    },
+    {
       "SwaggerKey": "Basket",
       "UpstreamPathTemplate": "/api/v1/basket",
       "UpstreamHttpMethod": [ "GET" ],
@@ -80,6 +106,16 @@
     }
   ],
   "SwaggerEndPoints": [
+    {
+      "Key": "Identity",
+      "Config": [
+        {
+          "Name": "Smakownia.Identity.Api",
+          "Version": "v1",
+          "Url": "http://smakownia.identity.api:80/swagger/v1/swagger.json"
+        }
+      ]
+    },
     {
       "Key": "Basket",
       "Config": [
