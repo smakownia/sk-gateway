@@ -27,6 +27,19 @@
       "DownstreamPathTemplate": "/api/v1/identities/register"
     },
     {
+      "SwaggerKey": "Identity",
+      "UpstreamPathTemplate": "/api/v1/identities/logout",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.identity.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/identities/logout"
+    },
+    {
       "SwaggerKey": "Basket",
       "UpstreamPathTemplate": "/api/v1/basket",
       "UpstreamHttpMethod": [ "GET" ],
