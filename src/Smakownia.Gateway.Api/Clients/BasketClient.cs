@@ -17,6 +17,7 @@ public class BasketClient : IBasketClient
 
     public async Task<BasketData> AddItem(AddBasketItemData data,
                                           string basketId,
+                                          string? authorization,
                                           CancellationToken cancellationToken = default)
     {
         var json = JsonSerializer.Serialize(data);
@@ -27,6 +28,7 @@ public class BasketClient : IBasketClient
         using var client = new HttpClient(handler) { BaseAddress = _baseUrl};
 
         cookieContainer.Add(_baseUrl, new Cookie("basketId", basketId));
+        cookieContainer.Add(_baseUrl, new Cookie("Authorization", authorization));
 
         using var response = await client.PostAsync("/api/v1/basket/items", content, cancellationToken);
 

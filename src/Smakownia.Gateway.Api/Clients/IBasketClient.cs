@@ -6,5 +6,6 @@ public interface IBasketClient
 {
     Task<BasketData> AddItem(AddBasketItemData data,
                              string basketId,
+                             string? authorization,
                              CancellationToken cancellationToken = default);
 }
