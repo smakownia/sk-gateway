@@ -19,7 +19,7 @@ public class BasketService : IBasketService
 
     public async Task<BasketData> AddItem(AddBasketItemData data, CancellationToken cancellationToken = default)
     {
-        return await _basketClient.AddItem(data, GetBasketId(), cancellationToken);
+        return await _basketClient.AddItem(data, GetBasketId(), _httpContext.Request.Cookies["Authorization"], cancellationToken);
     }
 
     private string GetBasketId()
