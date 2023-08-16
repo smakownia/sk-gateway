@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  smakownia.gateway.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+  rabbitmq:
+    ports:
+      - 15672:15672

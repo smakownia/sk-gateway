@@ -1,1 +1,3 @@
-# sk-gateway
+# Smakownia
+
+https://github.com/smakownia/smakownia

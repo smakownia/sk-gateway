@@ -1,0 +1,156 @@
+﻿{
+  "Routes": [
+    {
+      "SwaggerKey": "Identity",
+      "UpstreamPathTemplate": "/api/v1/identities/login",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.identity.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/identities/login"
+    },
+    {
+      "SwaggerKey": "Identity",
+      "UpstreamPathTemplate": "/api/v1/identities/register",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.identity.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/identities/register"
+    },
+    {
+      "SwaggerKey": "Identity",
+      "UpstreamPathTemplate": "/api/v1/identities/logout",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.identity.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/identities/logout"
+    },
+    {
+      "SwaggerKey": "Basket",
+      "UpstreamPathTemplate": "/api/v1/basket",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.basket.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/basket"
+    },
+    {
+      "SwaggerKey": "Basket",
+      "UpstreamPathTemplate": "/api/v1/basket/items/{id}",
+      "UpstreamHttpMethod": [ "PUT", "DELETE" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.basket.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/basket/items/{id}"
+    },
+    {
+      "SwaggerKey": "Products",
+      "UpstreamPathTemplate": "/api/v1/products",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.products.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/products"
+    },
+    {
+      "SwaggerKey": "Products",
+      "UpstreamPathTemplate": "/api/v1/products/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.products.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/products/{id}"
+    },
+    {
+      "SwaggerKey": "Products",
+      "UpstreamPathTemplate": "/api/v1/categories",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.products.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/categories"
+    },
+    {
+      "SwaggerKey": "Products",
+      "UpstreamPathTemplate": "/api/v1/categories/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "smakownia.products.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/categories/{id}"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "Identity",
+      "Config": [
+        {
+          "Name": "Smakownia.Identity.Api",
+          "Version": "v1",
+          "Url": "http://smakownia.identity.api:80/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "Basket",
+      "Config": [
+        {
+          "Name": "Smakownia.Basket.Api",
+          "Version": "v1",
+          "Url": "http://smakownia.basket.api:80/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "Products",
+      "Config": [
+        {
+          "Name": "Smakownia.Products.Api",
+          "Version": "v1",
+          "Url": "http://smakownia.products.api:80/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://127.0.0.1:80"
+  }
+}
