@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - feature/28-add-cd
 
 jobs:
   deploy:
